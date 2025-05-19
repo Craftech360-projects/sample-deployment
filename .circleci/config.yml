@@ -33,7 +33,22 @@ jobs:
           command: |
             ssh -o StrictHostKeyChecking=no root@167.71.227.229 "docker pull abilashs003/flask-app:latest && \
             docker stop flaskapp || true && docker rm flaskapp || true && \
-            docker run -d --name flaskapp -p 80:80 abilashs003/flask-app:latest"
+            docker run -d --name flaskapp -p 80:80 \
+            -p 5005:5005/udp -p 5007:5007/udp \
+            -e MQTT_BROKER=emqx \
+            -e MQTT_PORT=1883 \
+            -e HTTP_HOST=0.0.0.0 \
+            -e HTTP_PORT=5006 \
+            -e UDP_HOST=0.0.0.0 \
+            -e UDP_PORT=5005 \
+            -e IMAGE_UDP_PORT=5007 \
+            -e ELEVENLABS_API_KEY=sk_a5b27cbb2fd9acbdf9d2e8755d35e929d07e1629d43259d6 \
+            -e GROQ_API_KEY=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 \
+            -e VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBvcHBwamly> \
+            -v $(pwd)/audio_chunks:/app/audio_chunks \
+            -v $(pwd)/output_audio:/app/output_audio \
+            -v $(pwd)/.env:/app/.env \
+            abilashs003/flask-app:latest"
 
 
 workflows:

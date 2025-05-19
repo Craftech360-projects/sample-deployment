@@ -1,1 +1,15 @@
-flask==2.3.2
+numpy<1.25.0
+soundfile==0.12.1
+groq==0.20.0
+python-dotenv==1.0.0
+Flask==3.0.0
+requests==2.31.0
+paho-mqtt >=2.0.0
+pygame==2.5.2
+sounddevice==0.4.6
+gunicorn==21.2.0
+eventlet==0.33.3
+deepgram-sdk==3.11.0
+openai
+flask-cors
+supabase
