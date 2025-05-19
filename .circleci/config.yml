@@ -10,13 +10,16 @@ jobs:
           docker_layer_caching: true
       - run:
           name: Build Docker Image
-          command: docker build -t yourdockerhubusername/flask-app:latest .
+          command: docker build -t abilashs003/flask-app:latest .
+
       - run:
           name: Login to Docker Hub
           command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USER" --password-stdin
+
       - run:
           name: Push Docker Image
-          command: docker push yourdockerhubusername/flask-app:latest
+          command: docker push abilashs003/flask-app:latest
+
 
   deploy:
     docker:
