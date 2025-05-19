@@ -27,13 +27,13 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "your:ssh:key:fingerprint"
+            - "SHA256:me/XK7LhZkYxXYmaflxqSo5U8USW3IR2gu5D3XX3KYE"
       - run:
           name: SSH into Droplet and Deploy
           command: |
-            ssh -o StrictHostKeyChecking=no youruser@your.droplet.ip "docker pull yourdockerhubusername/flask-app:latest && \
+            ssh -o StrictHostKeyChecking=no root@167.71.227.229 "docker pull abilashs003/flask-app:latest && \
             docker stop flaskapp || true && docker rm flaskapp || true && \
-            docker run -d --name flaskapp -p 80:80 yourdockerhubusername/flask-app:latest"
+            docker run -d --name flaskapp -p 80:80 abilashs003/flask-app:latest"
 
 
 workflows:
