@@ -44,10 +44,10 @@ jobs:
             -e IMAGE_UDP_PORT=5007 \
             -e ELEVENLABS_API_KEY=sk_a5b27cbb2fd9acbdf9d2e8755d35e929d07e1629d43259d6 \
             -e GROQ_API_KEY=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 \
-            -e VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBvcHBwamly> \
-            -v $(pwd)/audio_chunks:/app/audio_chunks \
-            -v $(pwd)/output_audio:/app/output_audio \
-            -v $(pwd)/.env:/app/.env \
+            -e VITE_SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBvcHBwamly' \
+            -v /root/audio_chunks:/app/audio_chunks \
+            -v /root/output_audio:/app/output_audio \
+            -v /root/.env:/app/.env \
             abilashs003/flask-app:latest"
 
 
