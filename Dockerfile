@@ -24,5 +24,6 @@ EXPOSE 5006
 EXPOSE 5005/udp
 EXPOSE 1883
 
+COPY . .
 
 CMD ["python", "app.py"]
