@@ -26,13 +26,13 @@ jobs:
           fingerprints:
             - "your:ssh:key:fingerprint"
       - run:
-          name: SSH into Droplet and Deploy
-          command: |
-            ssh -o StrictHostKeyChecking=no youruser@your.droplet.ip << 'EOF'
-              docker pull yourdockerhubusername/flask-app:latest
-              docker stop flaskapp || true && docker rm flaskapp || true
-              docker run -d --name flaskapp -p 80:80 yourdockerhubusername/flask-app:latest
-            EOF
+         name: SSH into Droplet and Deploy
+         command: |
+           ssh -o StrictHostKeyChecking=no youruser@your.droplet.ip 'bash -s' <<EOF
+             docker pull yourdockerhubusername/flask-app:latest
+             docker stop flaskapp || true && docker rm flaskapp || true
+             docker run -d --name flaskapp -p 80:80 yourdockerhubusername/flask-app:latest
+           EOF
 
 workflows:
   build_and_deploy:
